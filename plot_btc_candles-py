@@ -1,0 +1,9 @@
+import yfinance as yf
+import pandas as pd
+import mplfinance as mpf
+
+def plot_btc_candles(period="1mo", interval="1d"):
+    data = yf.download("BTC-USD", period=period, interval=interval)
+    mpf.plot(data, type='candle', style='charles', title='Bitcoin Candlestick Chart', volume=True)
+
+plot_btc_candles("3mo", "1d")
